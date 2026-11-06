@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600&family=Cormorant+Garamond:wght@600&family=DM+Serif+Display&family=Playfair+Display:wght@600&display=swap');
+@import 'tailwindcss';
+
+/* Faces resolved from the Figma file */
+@font-face {
+  font-family: '42dot Sans:Light';
+  src: url('https://static.figma.com/font/42dotSans_wght__1') format('woff2');
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+/* The 42dot payload is a variable font; register it for weight 500 too so buttons
+   render a true medium instead of a synthesized bold. */
+@font-face {
+  font-family: '42dot Sans:Light';
+  src: url('https://static.figma.com/font/42dotSans_wght__1') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter:Semi Bold';
+  src: url('https://static.figma.com/font/Inter_1') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@theme {
+  /* BabelSans, Gentle Hearts, Neutral Trends and Eternalo are not available for this
+     file, so each stack names the original face first, then a Google fallback. */
+  --font-babel: 'BabelSans', 'Archivo Narrow', 'Arial Narrow', sans-serif;
+  --font-gentle: 'Gentle Hearts', 'DM Serif Display', Georgia, serif;
+  --font-neutral: 'Neutral Trends', 'Playfair Display', Georgia, serif;
+  --font-eternalo: 'Eternalo', 'Cormorant Garamond', Georgia, serif;
+  --font-dot: '42dot Sans:Light', system-ui, sans-serif;
+  --font-inter-semi: 'Inter:Semi Bold', 'Inter', system-ui, sans-serif;
+
+  --color-tangerine: #ff7700;
+  --color-cream: #faf0ca;
+  --color-butter: #f4d35e;
+  --color-navy: #002350;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; /* clears the floating header (12px offset + 52px bar + shadow) */
+  }
+
+  body {
+    background: #000;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Visible keyboard focus on every link/button; tangerine reads on both black and cream. */
+  :focus-visible {
+    outline: 2px solid var(--color-tangerine);
+    outline-offset: 3px;
+  }
+}
+
+/* "Open for OJT" status dot in the header. */
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.75);
+  }
+}
+
+/* Hero card shuffle: the front card lifts out to its side, tucks behind the deck,
+   and settles; the back card rises to the front at the midpoint. */
+@keyframes deck-to-back {
+  0% {
+    z-index: 20;
+    transform: none;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  45% {
+    z-index: 20;
+    transform: translate(var(--deck-x), var(--deck-y)) rotate(var(--deck-r)) scale(1.02);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+  }
+  50% {
+    z-index: 10;
+    transform: translate(var(--deck-x), var(--deck-y)) rotate(var(--deck-r)) scale(0.97);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    z-index: 10;
+    transform: none;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes deck-to-front {
+  0% {
+    z-index: 10;
+    transform: none;
+  }
+  45% {
+    z-index: 10;
+    transform: scale(0.985);
+  }
+  50% {
+    z-index: 20;
+    transform: scale(0.985);
+  }
+  100% {
+    z-index: 20;
+    transform: none;
+  }
+}
+
+.deck-to-back {
+  animation: deck-to-back 750ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+.deck-to-front {
+  animation: deck-to-front 750ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-to-back,
+  .deck-to-front {
+    animation-duration: 1ms;
+  }
+}
