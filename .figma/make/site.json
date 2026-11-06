@@ -1,0 +1,10 @@
+{
+  "description": "A professional portfolio showcasing Andrei Acosta’s experience, skills, and projects to help visitors learn about his work and connect with him.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
