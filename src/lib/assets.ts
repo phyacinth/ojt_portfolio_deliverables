@@ -3,6 +3,9 @@ const assetPathPrefix = '/assets'
 export const assets = {
   pattern: `${assetPathPrefix}/34c43.png`,
   portrait: `${assetPathPrefix}/a013d.png`,
+  /** Extra portraits the About section's photo.jpg window cycles through after `portrait`. */
+  portrait2: `${assetPathPrefix}/portrait-2.jpg`,
+  portrait3: `${assetPathPrefix}/portrait-3.jpg`,
   star: `${assetPathPrefix}/93e38.png`,
   figma: `${assetPathPrefix}/7a416.png`,
   github: `${assetPathPrefix}/github.svg`,

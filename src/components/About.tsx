@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useMemo, useRef, useState, type ReactNode, type RefObject } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from 'react'
 import { assets, externalProps, links } from '../lib/assets'
 import { useDragEnabled, useDraggable } from '../lib/useDraggable'
 import { WindowCard } from './ui'
@@ -63,10 +63,31 @@ function AboutMeCard({ className }: { className: string }) {
   )
 }
 
+const portraits = [assets.portrait, assets.portrait2, assets.portrait3]
+/** How long each portrait stays up before cross-fading to the next. */
+const PORTRAIT_INTERVAL_MS = 4000
+
 function PhotoCard({ className }: { className: string }) {
+  const [shown, setShown] = useState(0)
+  useEffect(() => {
+    const id = setInterval(() => setShown((i) => (i + 1) % portraits.length), PORTRAIT_INTERVAL_MS)
+    return () => clearInterval(id)
+  }, [])
   return (
     <DeskWindow title="photo.jpg" flush className={className}>
-      <img alt="Portrait of Andrei Acosta" src={assets.portrait} className="block aspect-[4/5] w-full bg-black object-cover" />
+      {/* All portraits are stacked and preloaded; only the current one is opaque. */}
+      <div className="relative aspect-[4/5] w-full bg-black">
+        {portraits.map((src, i) => (
+          <img
+            key={src}
+            alt={i === shown ? 'Portrait of Andrei Acosta' : ''}
+            aria-hidden={i !== shown}
+            src={src}
+            draggable={false}
+            className={`absolute inset-0 block size-full object-cover transition-opacity duration-700 motion-reduce:transition-none ${i === shown ? 'opacity-100' : 'opacity-0'}`}
+          />
+        ))}
+      </div>
       <p className="border-t-2 border-tangerine px-5 py-3 font-neutral text-[16px] leading-[1.45] tracking-[2px] text-tangerine sm:px-7">Open for internships!</p>
     </DeskWindow>
   )
