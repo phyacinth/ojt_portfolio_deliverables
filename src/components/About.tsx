@@ -108,7 +108,7 @@ function EducationCard({ className }: { className: string }) {
     <DeskWindow title="education" className={className}>
       <h2 className={cardHeading}>Academic Background</h2>
       <p className={`mt-3 max-w-[60ch] ${bodyText}`}>
-        Bachelor of Industrial Technology, Major in Computer Technology — Bulacan State University, College of Industrial Technology. Expected Graduation: [Year]
+        Bachelor of Industrial Technology, Major in Computer Technology — Bulacan State University, College of Industrial Technology. Expected Graduation: [2023-Current]
       </p>
     </DeskWindow>
   )
