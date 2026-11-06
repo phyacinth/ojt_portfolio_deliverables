@@ -53,9 +53,15 @@ export function InfoBox({ label, children, className = '' }: { label: string; ch
   )
 }
 
-export function SectionTitle({ accent, id, className = '' }: { accent: string; id: string; className?: string }) {
+const titleSizes = {
+  default: 'text-[24px] leading-[2.181] tracking-[4.8px]',
+  // Large centred heading (e.g. behind the project cards): scales with the viewport.
+  display: 'text-center text-[clamp(40px,8.4vw,104px)] leading-[1.1] tracking-[0.18em]',
+}
+
+export function SectionTitle({ accent, id, size = 'default', className = '' }: { accent: string; id: string; size?: keyof typeof titleSizes; className?: string }) {
   return (
-    <h2 id={id} className={`font-gentle text-[24px] leading-[2.181] tracking-[4.8px] text-white ${className}`}>
+    <h2 id={id} className={`font-gentle text-white ${titleSizes[size]} ${className}`}>
       My <span className="text-tangerine">{accent}</span>
     </h2>
   )

@@ -6,7 +6,7 @@ import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { Projects } from './components/Projects'
 import { Skills } from './components/Skills'
-import { assets } from './lib/assets'
+import { ShootingStars } from './components/ShootingStars'
 
 export default function App() {
   // Placeholder links (href="#") should not jump to the top of the page.
@@ -21,9 +21,8 @@ export default function App() {
 
   return (
     <div id="top" className="relative min-h-dvh overflow-x-clip bg-black">
-      {/* Diagonal Lines/6px texture */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-size-[6px_6px] bg-top-left opacity-50" style={{ backgroundImage: `url("${assets.pattern}")` }} />
       <Header />
+      <ShootingStars />
       <main className="relative">
         <Hero />
         <About />

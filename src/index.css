@@ -47,7 +47,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px; /* clears the floating header (12px offset + 52px bar + shadow) */
   }
 
   body {
@@ -59,19 +58,6 @@
   :focus-visible {
     outline: 2px solid var(--color-tangerine);
     outline-offset: 3px;
-  }
-}
-
-/* "Open for OJT" status dot in the header. */
-@keyframes status-pulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.45;
-    transform: scale(0.75);
   }
 }
 
@@ -131,5 +117,45 @@
   .deck-to-back,
   .deck-to-front {
     animation-duration: 1ms;
+  }
+}
+
+/* Skills connector: draws the curve in from the category dot (path uses pathLength=1). */
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Skills list items rising into the box when the category changes. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Shooting stars: rise from below the screen and fade out near the top. */
+@keyframes shoot-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  12% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-100vh - 260px));
   }
 }
