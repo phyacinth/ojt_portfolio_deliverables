@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { assets, links } from '../lib/assets'
 import { GlassCircle } from './Decor'
-import { ButtonLink, InfoBox } from './ui'
+import { ButtonLink } from './ui'
 
 const cvDownloadName = links.cvFile === '#' ? undefined : 'Andrei-Acosta-CV.pdf'
 
@@ -80,21 +80,6 @@ export function Hero() {
       <GlassCircle className="top-[-12px] left-[-37px] size-[230px] md:top-[-37px] md:left-[41px] md:size-[379px]" />
 
       <HeroCard />
-
-      <div className="relative mx-auto mt-8 flex max-w-[460px] flex-col gap-5 px-4 min-[492px]:px-0">
-        <div className="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2">
-          <ButtonLink href={links.cvFile} download={cvDownloadName} widthClass="w-full">
-            Download CV
-          </ButtonLink>
-          <ButtonLink href="#contact" variant="outline" widthClass="w-full">
-            Contact Me
-          </ButtonLink>
-        </div>
-        <div className="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2">
-          <InfoBox label="Target Hours">486 Hours</InfoBox>
-          <InfoBox label="Availability">2nd Sem A.Y. 2026–2027</InfoBox>
-        </div>
-      </div>
 
       <div aria-hidden className="absolute inset-x-0 bottom-0 h-px">
         <img alt="" src={assets.heroLineMobile} className="block size-full max-w-none rotate-180 md:hidden" />
