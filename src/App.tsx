@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { About } from './components/About'
 import { Contact } from './components/Contact'
+import { CursorFireworks } from './components/CursorFireworks'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
@@ -31,6 +32,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <CursorFireworks />
     </div>
   )
 }
