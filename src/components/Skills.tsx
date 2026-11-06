@@ -4,9 +4,9 @@ import { WindowCard } from './ui'
 
 const groups = [
   { label: 'Front-End & Core Web', file: 'front-end.txt', items: ['HTML', 'CSS', 'JavaScript', 'Flutter', 'Dart', 'Responsive Design'] },
-  { label: 'Tools & Platforms', file: 'tools.txt', items: ['Figma', 'Visual Studio Code', 'Android Studio', 'Git/GitHub', 'Microsoft Word', 'Microsoft Excel'] },
-  { label: 'Design & Media', file: 'design.txt', items: ['Visual Design', 'Web Design', 'UI Animation', 'DaVinci Resolve'] },
-  { label: 'Programming & Technical Foundation', file: 'programming.txt', items: ['C++', 'Hardware Servicing', 'Networking'] },
+  { label: 'Tools & Platforms', file: 'tools.txt', items: ['Figma', 'Visual Studio Code', 'Android Studio', 'Git/GitHub', 'Microsoft Word', 'Microsoft Excel', 'DaVinci Resolve'] },
+  { label: 'Design & Media', file: 'design.txt', items: ['Visual Design', 'Web Design', 'UI Animation'] },
+  { label: 'Programming & Technical Foundation', file: 'programming.txt', items: ['C++', 'Python', 'SQL', 'Software & Hardware Troubleshooting', 'Networking'] },
 ]
 
 type Curve = { x1: number; y1: number; x2: number; y2: number }
