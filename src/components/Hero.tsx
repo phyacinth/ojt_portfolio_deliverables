@@ -27,7 +27,11 @@ function HeroCard() {
       onPointerDown={(e) => (lastPointer.current = e.pointerType)}
       onPointerEnter={(e) => e.pointerType === 'mouse' && flip(true)}
       onPointerLeave={(e) => e.pointerType === 'mouse' && flip(false)}
-      onClick={() => lastPointer.current !== 'mouse' && flip((f) => !f)}
+      onClick={(e) => {
+        // Taps on the card's buttons (Download CV, Contact Me) follow the link instead of flipping.
+        if ((e.target as Element).closest('a')) return
+        if (lastPointer.current !== 'mouse') flip((f) => !f)
+      }}
       onKeyDown={(e) => {
         if (e.target !== e.currentTarget) return
         if (e.key === 'Enter' || e.key === ' ') {
@@ -44,14 +48,15 @@ function HeroCard() {
             <p className="font-babel text-[18px] leading-normal tracking-[2.7px] text-tangerine">Hi, I’m</p>
             <p className="font-gentle text-[min(38px,8.4vw)] leading-normal tracking-[min(5.7px,1.2vw)] whitespace-nowrap text-tangerine">Andrei Acosta</p>
             <p className="font-babel text-[18px] leading-normal tracking-[2.7px] text-navy">An aspiring UI/UX developer</p>
-            <ButtonLink
-              href={links.cvFile}
-              download={cvDownloadName}
-              tabIndex={flipped ? 0 : -1}
-              onClick={(e) => e.stopPropagation()}
-            >
-              Download CV
-            </ButtonLink>
+            <div className="flex flex-wrap gap-3">
+              <ButtonLink href={links.cvFile} download={cvDownloadName} tabIndex={flipped ? 0 : -1} widthClass="w-[150px]">
+                Download CV
+              </ButtonLink>
+              {/* #contact also opens the Contact doors (see Contact.tsx). */}
+              <ButtonLink href="#contact" variant="outlineLight" tabIndex={flipped ? 0 : -1} widthClass="w-[150px]">
+                Contact Me
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </div>
@@ -74,7 +79,10 @@ function HeroCard() {
 
 export function Hero() {
   return (
-    <section aria-label="Introduction" className="relative overflow-hidden pt-[206px] pb-[96px] md:pt-[247px] md:pb-[112px]">
+    <section aria-label="Introduction" className="relative flex min-h-svh flex-col justify-center overflow-hidden pt-[96px] pb-[64px]">
+      {/* Diagonal Lines/6px texture: hero only; the rest of the page is plain black. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-size-[6px_6px] bg-top-left opacity-50" style={{ backgroundImage: `url("${assets.pattern}")` }} />
+
       {/* Two soft glass circles behind the card */}
       <GlassCircle className="top-[-98px] right-[-99px] size-[221px] md:top-[-83px] md:right-[-66px] md:size-[474px]" />
       <GlassCircle className="top-[-12px] left-[-37px] size-[230px] md:top-[-37px] md:left-[41px] md:size-[379px]" />

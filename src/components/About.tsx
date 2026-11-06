@@ -47,7 +47,7 @@ const competencies = ['UI/UX Design', 'Responsive Web Design', 'Rapid Prototypin
 const socials = [
   { label: 'GitHub', href: links.github, src: assets.github },
   { label: 'LinkedIn', href: links.linkedin, src: assets.linkedin },
-  { label: 'Instagram', href: links.instagram, src: assets.instagram },
+  { label: 'Figma', href: links.figma, src: assets.figma },
 ]
 
 function AboutMeCard({ className }: { className: string }) {
@@ -108,7 +108,7 @@ function EducationCard({ className }: { className: string }) {
     <DeskWindow title="education" className={className}>
       <h2 className={cardHeading}>Academic Background</h2>
       <p className={`mt-3 max-w-[60ch] ${bodyText}`}>
-        Bachelor of Industrial Technology, Major in Computer Technology — Bulacan State University, College of Industrial Technology. Expected Graduation: [2023-Current]
+        Bachelor of Industrial Technology, Major in Computer Technology — Bulacan State University, College of Industrial Technology. Expected Graduation: 2027
       </p>
     </DeskWindow>
   )
@@ -154,7 +154,7 @@ export function About() {
 
   return (
     <DeskContext.Provider value={desk}>
-    <section ref={sectionRef} id="about" aria-label="About" className="relative z-10 px-4 py-16 md:px-8 lg:py-24">
+    <section ref={sectionRef} id="about" aria-label="About" className="relative z-10 flex min-h-svh flex-col justify-center px-4 py-24 md:px-8">
       {enabled && <p className="sr-only">Tip: drag the windows by their title bars.</p>}
       {anyMoved && (
         <button
@@ -165,7 +165,7 @@ export function About() {
           Reset windows
         </button>
       )}
-      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-5 md:grid-cols-2 md:items-start md:gap-6 lg:grid-cols-12 lg:gap-x-8">
+      <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-5 md:grid-cols-2 md:items-start md:gap-6 lg:grid-cols-12 lg:gap-x-8">
         <div className="contents lg:col-span-8 lg:flex lg:flex-col lg:gap-10 lg:pt-4">
           <AboutMeCard className="order-2 lg:order-none lg:mr-[6%]" />
           <div className="contents lg:grid lg:grid-cols-9 lg:items-start lg:gap-6">
@@ -173,7 +173,7 @@ export function About() {
             <CompetenciesCard className="order-5 md:col-span-2 lg:order-none lg:col-span-4 lg:mt-12 lg:[--card-rotate:1deg]" />
           </div>
         </div>
-        <div className="contents lg:col-span-4 lg:flex lg:flex-col lg:gap-10 lg:-mt-[120px]">
+        <div className="contents lg:col-span-4 lg:flex lg:flex-col lg:gap-10">
           <PhotoCard className="order-1 lg:order-none lg:[--card-rotate:1deg]" />
           <ContactsCard className="order-3 lg:order-none lg:-ml-3 lg:[--card-rotate:-1deg]" />
         </div>

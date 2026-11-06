@@ -7,7 +7,6 @@ export const assets = {
   figma: `${assetPathPrefix}/7a416.png`,
   github: `${assetPathPrefix}/github.svg`,
   linkedin: `${assetPathPrefix}/1b194.png`,
-  instagram: `${assetPathPrefix}/3538b.png`,
   call: `${assetPathPrefix}/47868.svg`,
   email: `${assetPathPrefix}/4e762.svg`,
   arrowOrange: `${assetPathPrefix}/ced73.svg`,
@@ -15,7 +14,8 @@ export const assets = {
   verifiedOrange: `${assetPathPrefix}/78ae7.svg`,
   verifiedEmpty: `${assetPathPrefix}/3dfc5.svg`,
   verifiedWhite: `${assetPathPrefix}/ee1c4.svg`,
-  footerInstagram: `${assetPathPrefix}/10664.svg`,
+  footerGithub: `${assetPathPrefix}/footer-github.svg`,
+  footerFigma: `${assetPathPrefix}/footer-figma.svg`,
   footerLinkedin: `${assetPathPrefix}/a50f1.svg`,
   // Desktop lines
   heroLine: `${assetPathPrefix}/2b4b2.svg`,
@@ -25,6 +25,13 @@ export const assets = {
   skillsLineShort: `${assetPathPrefix}/e7999.svg`,
   // Mobile lines
   heroLineMobile: `${assetPathPrefix}/dc618.svg`,
+  // Project screenshots (public/assets/projects)
+  projectCitracker: `${assetPathPrefix}/projects/citracker.jpg`,
+  projectShallowSleepRoom: `${assetPathPrefix}/projects/shallow-sleep-room.jpg`,
+  projectShallowSleepLobby: `${assetPathPrefix}/projects/shallow-sleep-lobby.jpg`,
+  projectShallowSleepDoctor: `${assetPathPrefix}/projects/shallow-sleep-doctor.jpg`,
+  projectShallowSleepDoll: `${assetPathPrefix}/projects/shallow-sleep-doll.jpg`,
+  projectPortfolio: `${assetPathPrefix}/projects/portfolio.jpg`,
   aboutLineMobileA: `${assetPathPrefix}/c4679.svg`,
   aboutLineMobileH: `${assetPathPrefix}/f2e7c.svg`,
   aboutLineMobileB: `${assetPathPrefix}/c2414.svg`,
@@ -39,15 +46,14 @@ export const assets = {
 export const links = {
   linkedin: 'https://www.linkedin.com/in/andrei-acosta-276a3241b/',
   figma: 'https://www.figma.com/@andreiacosta1',
-  github: '#',
-  instagram: '#',
+  github: 'https://github.com/phyacinth',
   phone: 'tel:+639288986970',
   email: 'mailto:atsocaandrei185@gmail.com',
-  cvFile: '#',
+  cvFile: '/Andrei-Acosta-CV.pdf',
   projects: {
-    bulsu: { liveDemo: '#', sourceCode: '#' },
-    inventory: { liveDemo: '#', sourceCode: '#' },
-    thesis: { liveDemo: '#', sourceCode: '#' },
+    /** CiTracker has no public link yet ("coming soon"). */
+    shallowSleepAssets: 'https://drive.google.com/drive/folders/1mvJR6dOOgHnJ3UJOoRgQDX3htYbS5que?usp=sharing',
+    portfolioSource: 'https://github.com/phyacinth/ojt_portfolio_deliverables',
   },
   certificates: {
     cpp: 'https://www.sololearn.com/certificates/CC-IFWLSTNZ',
